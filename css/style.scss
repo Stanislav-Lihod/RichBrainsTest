@@ -1,0 +1,36 @@
+@import 'reset.scss';
+@import 'mixin.scss';
+@import 'main.scss';
+@import 'header.scss';
+@import 'aside.scss';
+@import 'footer.scss';
+@import 'mobile-menu.scss';
+@import 'tepmlate.scss';
+
+body {
+	background-color: #f7f7f7;
+	font-family: Helvetica, sans-serif;
+	min-width: 320px;
+
+	@include for-tablet-portrait-up{
+		background-color: white;
+	}
+}
+
+.container {
+	max-width: 1205px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 4px;
+
+	@include for-tablet-portrait-up {
+		padding: 0 20px;
+	}
+
+	@include for-phone-only {
+		padding: 0 12px;
+	}
+}
+

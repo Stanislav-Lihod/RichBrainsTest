@@ -1,0 +1,168 @@
+aside {
+	max-width: 285px;
+	background: white;
+	margin-right: 12px;
+
+	@include for-tablet-portrait-up {
+		display: none;
+	}
+
+	& .aside-menu {
+		padding: 30px 15px 25px;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		justify-content: space-between;
+		color: #3E3E3E;
+
+		@include for-tablet-landscape-up {
+			padding: 30px 10px 25px;
+		}
+
+		&-up__category {
+			width: 100%;
+			color: #259609;
+			text-transform: uppercase;
+			font-size: 13px;
+			line-height: 20px;
+			font-weight: 400;
+			border-bottom: 2px solid #ECECEC;
+			padding-bottom: 20px;
+
+			&::before {
+				@extend %before-rank-img;
+				content: url(../img/aside_rank.svg);
+			}
+		}
+
+		&-up___list {
+			padding: 20px 0 2px 12px;
+
+			& li {
+				margin-bottom: 17px;
+
+				&.active_sub>a {
+					color: #259609;
+
+					&::after {
+						background: url(../img/angle_hover.svg) no-repeat;
+						width: 12px;
+						height: 6px;
+					}
+				}
+			}
+
+			& a {
+				position: relative;
+				display: block;
+				text-decoration: none;
+				font-size: 16px;
+				line-height: 20px;
+				font-weight: 700;
+				color: #3E3E3E;
+				padding: 5px 0;
+				padding-right: 20px;
+				outline: none;
+
+				@include for-tablet-landscape-up {
+					font-size: 14px;
+					font-weight: 600;
+				}
+
+				&::after {
+					content: "";
+					background: url(../img/angle.svg) no-repeat;
+					position: absolute;
+					right: 10px;
+					top: 50%;
+					width: 6px;
+					height: 12px;
+					transform: translateY(-50%);
+				}
+
+				&:hover {
+					color: #259609;
+
+					&::after {
+						background: url(../img/angle_hover.svg) no-repeat;
+						width: 12px;
+						height: 6px;
+					}
+				}
+			}
+		}
+
+		&-up ul li.active_sub .aside-menu-up__submenu {
+			display: block;
+		}
+
+		&-up__submenu {
+			display: none;
+			padding-top: 7px;
+
+			& li {
+				border-radius: 3px;
+				margin-bottom: 2px;
+
+				&:hover {
+					background-color: #F2F2F2;
+				}
+
+				& .active_link_sub {
+					border-radius: 3px;
+					background-color: rgba(37, 150, 9, 0.15);
+				}
+			}
+
+			& a {
+				padding: 10px 13px;
+				font-size: 14px;
+				font-weight: 400;
+
+				@include for-tablet-landscape-up {
+					font-size: 12px;
+				}
+
+				&:hover {
+					color: #3E3E3E;
+
+					&::after {
+						background: none;
+					}
+				}
+
+				&::after {
+					background: none;
+				}
+
+				&.active {
+					color: #259609;
+				}
+			}
+		}
+
+		& .aside-menu-down {
+			border-top: 1px solid #ECECEC;
+			padding: 20px 0 0;
+
+			&__button {
+				@extend %button-aside-item;
+				border: 1px solid #259609;
+				display: block;
+				font-weight: bold;
+				color: #259609;
+				margin-bottom: auto;
+
+				@include for-tablet-landscape-up {
+					font-size: 12px;
+				}
+
+				&:hover {
+					color: white;
+					background-color: #259609;
+					box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.06);
+				}
+			}
+		}
+	}
+}

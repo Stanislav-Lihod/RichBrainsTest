@@ -1,0 +1,335 @@
+main {
+	display: flex;
+	flex-wrap: wrap;
+	width: 900px;
+
+	& .grid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		margin-bottom: 21px;
+
+		@include for-phone-only {
+			align-items: stretch;
+			flex-direction: column;
+		}
+
+		&__item {
+			position: relative;
+			max-width: 31.35%;
+			height: 405px;
+			background-color: white;
+			margin: 0px 3px 20px;
+			border-radius: 2px;
+			box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.06);
+			cursor: pointer;
+			overflow: hidden;
+
+			@include for-desktop-up {
+				max-width: 48.5%;
+			}
+
+			@include for-tablet-portrait-up {
+				max-width: 47.5%;
+			}
+
+			@include for-phone-only {
+				max-width: 100%;
+				margin: 0px 3px 20px;
+				height: 330px;
+			}
+
+			&-close-add {
+				@extend %icon-add-close;
+				background-color: #259025;
+				top: 23px;
+				left: 23px;
+				display: none;
+
+				&::before,
+				&::after {
+					background-color: white;
+				}
+				&:hover {
+					background-color: rgba(37, 150, 9, 0.7);
+				}
+				@include for-phone-only{
+					display: block;
+				}
+			}
+
+			&:hover {
+				box-shadow: 0px 22px 37px rgba(0, 0, 0, 0.2);
+
+				& .grid-item-back {
+					z-index: 1;
+					top: 0px;
+				}
+
+				& .grid-item-down__button {
+					background-color: white;
+					color: #259025;
+
+					@include for-phone-only {
+						background-color: #259025;
+						color: white;
+					}
+				}
+
+				@include for-phone-only {
+					box-shadow: 0px 22px 37px rgba(0, 0, 0, 0.06);
+				}
+			}
+
+			&.active_card {
+				& .grid-item-back {
+					z-index: 1;
+					top: 0px;
+				}
+
+				& .grid-item-down__button {
+					background-color: rgba(255, 255, 255, 0.3);
+					color: white;
+
+					@include for-phone-only {
+						background-color: #259025;
+					}
+				}
+
+				& .grid-item-back .grid-item-back__icon-close-add {
+					background-color: white;
+					transform: rotate(45deg);
+				}
+			}
+
+			&-up-line {
+				height: 6px;
+				width: 100%;
+				background-color: #259025;
+			}
+
+			&-front {
+				padding: 25px 30px 30px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				@include for-tablet-landscape-up {
+					padding: 25px 20px 30px;
+				}
+
+				@include for-phone-only {
+					padding: 16px 15px 30px 24px;
+					justify-content: flex-start;
+				}
+
+			}
+		}
+
+		& .grid-item-up {
+			display: flex;
+			flex-direction: column;
+
+			@include for-phone-only {
+				margin-bottom: 7px;
+			}
+
+			&__logo {
+				max-width: 200px;
+				margin-bottom: 27px;
+				height: 35px;
+				align-self: flex-end;
+
+				@include for-phone-only {
+					margin-bottom: 11px;
+				}
+			}
+
+			&__category {
+				color: #259025;
+				font-size: 13px;
+				line-height: 20px;
+				text-transform: uppercase;
+				margin-bottom: 9px;
+
+				@include for-phone-only {
+					margin-bottom: 7px;
+				}
+			}
+
+			&__title {
+				color: #3E3E3E;
+				font-size: 20px;
+				line-height: 30px;
+				font-weight: bold;
+				color: #3E3E3E;
+
+				@include for-phone-only {
+					font-size: 16px;
+					line-height: 23px;
+				}
+			}
+		}
+
+		& .grid-item-down {
+			margin-bottom: 50px;
+
+			&__rank {
+				font-size: 14px;
+				line-height: 16px;
+				color: #3E3E3E;
+				margin-bottom: 5px;
+
+				&::before {
+					@extend %before-rank-img;
+					display: inline-block;
+					content: url(../img/rank.svg);
+
+					@include for-phone-only {
+						display: none;
+					}
+				}
+			}
+
+			&__date {
+				margin-left: 35px;
+				font-size: 14px;
+				line-height: 16px;
+				color: #3E3E3E;
+				margin-bottom: 30px;
+
+				&::before {
+					content: '';
+					display: inline-block;
+					background: url(../img/date.svg)no-repeat;
+					background-size: contain;
+					width: 16px;
+					height: 16px;
+					transform: translateY(3px);
+					transform: translateX(-33px);
+					margin-right: -20px;
+				}
+
+				@include for-phone-only {
+					display: none;
+				}
+			}
+
+			&__price {
+				display: none;
+				font-size: 16px;
+				line-height: 22px;
+				color: #3E3E3E;
+				font-weight: 600;
+
+				@include for-phone-only {
+					display: block;
+					position: absolute;
+					bottom: 77px;
+				}
+			}
+		}
+
+		& .grid-item-down__button {
+			@extend %button-aside-item;
+			position: absolute;
+			width: 78%;
+			bottom: 30px;
+			left: 11%;
+			background-color: #259025;
+			font-weight: 500;
+			color: #FFFFFF;
+			z-index: 3;
+
+			@include for-phone-only {
+				width: 85%;
+				left: 7.5%;
+				bottom: 19px;
+			}
+
+			&:hover {
+				transform: scale(1.05);
+				box-shadow: 0px 22px 37px rgba(0, 0, 0, 0.2);
+			}
+		}
+
+		& .grid-item-back {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+			border-radius: 3px;
+			background-color: #259025;
+			padding: 30px;
+			top: 405px;
+			left: 0;
+			position: absolute;
+			z-index: 1;
+			transition: .3s;
+
+			@include for-phone-only {
+				display: none;
+			}
+
+			&__icon-close-add {
+				@extend %icon-add-close;
+				display: block;
+				right: 20px;
+				top: 20px;
+				background-color: rgba(255, 255, 255, 0.7);
+
+				&::before,
+				&::after {
+					background-color: #616161;
+				}
+
+				&:hover {
+					background-color: white;
+				}
+			}
+
+			&-up {
+				color: white;
+
+				& h2 {
+					font-size: 16px;
+					line-height: 22px;
+					margin-bottom: 20px;
+					margin-right: 30px;
+				}
+
+				&__duraiton {
+					margin-bottom: 20px;
+					font-size: 14px;
+					line-height: 22px;
+
+					& span {
+						font-weight: bold;
+					}
+				}
+
+				&__starts {
+					margin-bottom: 15px;
+					font-size: 14px;
+					line-height: 22px;
+
+					& span {
+						font-weight: bold;
+					}
+				}
+			}
+
+			&-down {
+				&__price {
+					color: white;
+					font-size: 32px;
+					font-weight: bold;
+					margin-bottom: 65px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+%button-aside-item {
+	padding: 14px 0px;
+	font-size: 14px;
+	text-transform: uppercase;
+	transition: .3s;
+	border-radius: 3px;
+	line-height: 16px;
+	text-align: center;
+	text-decoration: none;
+}
+
+%before-rank-img {
+	background-size: contain;
+	width: 20px;
+	height: 20px;
+	transform: translateY(3px);
+	margin-right: 14px;
+}
+
+%icon-add-close{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	transition: .3s;
+
+	&::before,
+	&::after {
+		display: block;
+		position: absolute;
+		width: 50%;
+		height: 1px;
+		top: 50%;
+		left: 25%;
+	}
+
+	&::before {
+		content: '';
+	}
+
+	&::after {
+		content: '';
+		transform: rotate(90deg);
+	}
+
+	&:hover {
+		transform: rotate(45deg);
+	}
+}
+
+%bs-bg-clr{
+	background-color: #259025;
+}
+%bs-clr{
+	color: #259025;
+}
+

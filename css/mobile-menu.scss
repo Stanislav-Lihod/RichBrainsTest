@@ -1,0 +1,77 @@
+.mobile-menu {
+	font-family: 'Raleway', sans-serif;
+	align-self: center;
+	background-color: #F1F1F1;
+	width: 100%;
+	font-size: 16px;
+	padding: 17px 27px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+	display: none;
+
+	@include for-tablet-portrait-up{
+		display: block;
+	}
+
+	&::before {
+		content: url(../img/aside_rank.svg);
+		display: inline-block;
+		background-size: contain;
+		width: 20px;
+		height: 20px;
+		transform: translateY(2px);
+    margin-right: 6px;
+	}
+
+	&::after {
+		content: "";
+		background: url(../img/angle.svg) no-repeat;
+		position: absolute;
+		right: 23px;
+    top: 52%;
+		width: 6px;
+		height: 12px;
+		transform: translateY(-50%);
+
+	}
+
+	&.active-mobile-menu {
+		color: #259609;
+
+		&::after {
+			background: url(../img/angle_hover.svg) no-repeat;
+			width: 12px;
+			height: 6px;
+		}
+
+		& .mobile-menu__drop{
+			display: block;
+			color: #3e3e3e;
+		}
+	}
+
+	&__drop{
+		display: none;
+		z-index: 4;
+		position: absolute;
+		background-color: #F1F1F1;
+		width: 100%;
+		border-radius: 3px;
+		transform: translateY(4%);
+		right: 0;
+
+		& ul{
+			text-transform: none;
+
+			& li{
+				padding: 20px;
+
+				&:hover{
+					color: #259609;
+				}
+			}
+		}
+	}
+}
